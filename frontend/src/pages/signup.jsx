@@ -18,6 +18,7 @@ export default function SignUp() {
     if (step === 0)
       return history.push('./');
     setBtn('Proximo');
+
     return setStep(step - 1);
   }
 

@@ -71,3 +71,9 @@ label {
 	font-weight: 600;
 	color: rgba(255, 255, 255, 1);
 }
+
+.list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}

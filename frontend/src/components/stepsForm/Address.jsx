@@ -2,17 +2,19 @@ import React, { useContext, useState } from 'react'
 import { DataContext } from '../../context/DataContext';
 import axios from 'axios';
 
-const defaultValues = {
-  rua: '',
-  cep: '',
-  numero: 0,
-  bairro: '',
-  cidade: '',
-  estado: ''
-}
+
 
 export const Address = () => {
-  const { address, setAddress } = useContext(DataContext);
+  const { address, setAddress, info } = useContext(DataContext);
+  const defaultValues = {
+    cli_id: info.id,
+    rua: '',
+    cep: '',
+    numero: 0,
+    bairro: '',
+    cidade: '',
+    estado: ''
+  }
   const [adAux, setAux] = useState(defaultValues);
 
   /* 

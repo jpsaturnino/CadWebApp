@@ -7,7 +7,26 @@ export const Info = () => {
   return (
     <>
       <h3 className='text-semibold mb-5'>Informações Pessoais</h3>
-      <div className='row m-0 align-items-center justify-content-between'>
+      <div className='col-2 p-0'>
+        <div>
+          <label htmlFor='id'>
+            ID
+          </label>
+        </div>
+        <input
+          onChange={e => {
+            const newId = e.target.value;
+            setInfo(prev => {
+              return { ...prev, id: newId }
+            })
+          }}
+          value={info.id}
+          className='w-100 bg-transparent input-style rounded p-2'
+          type='text' id='id' placeholder=''
+        />
+      </div>
+      <div className='row m-0 mt-3 align-items-center justify-content-between'>
+
         <div className='col-md-auto p-0'>
           <div>
             <label htmlFor='nome'>

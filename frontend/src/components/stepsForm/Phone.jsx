@@ -1,13 +1,13 @@
 import React, { useContext, useState } from 'react'
 import { DataContext } from '../../context/DataContext';
 
-const defaultValues = {
-  tipo: '',
-  numero: ''
-}
-
 export const Phone = () => {
-  const { phone, setPhone } = useContext(DataContext);
+  const { phone, setPhone, info } = useContext(DataContext);
+  const defaultValues = {
+    cli_id: info.id,
+    tipo: '',
+    numero: ''
+  }
   const [phAux, setAux] = useState(defaultValues);
 
   function resetFields() {
@@ -16,6 +16,7 @@ export const Phone = () => {
 
   function savePhone(e) {
     e.preventDefault();
+    console.log(phAux);
     setPhone([...phone, phAux]);
     resetFields();
   }

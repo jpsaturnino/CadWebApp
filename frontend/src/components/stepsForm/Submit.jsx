@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { DataContext } from '../../context/DataContext';
 
 export const Submit = () => {
@@ -12,7 +12,6 @@ export const Submit = () => {
             <div className='col-md-auto'>
               <p className='m-0 p-0 text-black'>{adr.rua}, Nº {adr.numero}</p>
             </div>
-
           </div>
         ))
         : null

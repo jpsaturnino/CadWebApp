@@ -3,7 +3,7 @@ import api from '../services/api';
 
 const defaultInfo =
 {
-  id: '',
+  id: 0,
   nome: '',
   sobrenome: '',
   dataNasc: '',
@@ -23,7 +23,7 @@ export default function DataProvider({ children }) {
   const [phone, setPhone] = useState([]);
   const [allDone, setAllDone] = useState(false);
 
-  async function clients() {
+  async function sClient() {
     const {
       id, nome, sobrenome, dataNasc, cpf, rg,
       facebook, instagram, linkedin, twitter
@@ -36,7 +36,13 @@ export default function DataProvider({ children }) {
   }
 
   async function sPhone() {
-    await api.post('/', phone);
+    console.log(phone);
+    await api.post('/phone/', phone);
+  }
+
+  async function sAdress() {
+    console.log(address);
+    await api.post('/address/', address)
   }
 
   function clearAllFields() {
@@ -46,8 +52,8 @@ export default function DataProvider({ children }) {
   }
 
   function saveData() {
-    //sClient();
-    //sAdress();
+    sClient();
+    sAdress();
     sPhone();
 
     setAllDone(true);

@@ -12,7 +12,7 @@ export default function Home() {
         <Button className='m-2' onClick={() => history.push('/cadastro')}>
           CADASTRAR CLIENTE
         </Button>
-        <Button className='m-2 bg-dark btn-dark' onClick={() => history.push('/')}>
+        <Button className='m-2 bg-dark btn-dark' onClick={() => history.push('/clientes')}>
           VIZUALIZAR CLIENTES CADASTRADOS
         </Button>
       </div>

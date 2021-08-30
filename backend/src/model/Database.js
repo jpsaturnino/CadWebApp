@@ -13,7 +13,7 @@ module.exports = new
             const config = {
                 host: "localhost",
                 user: "root",
-                password: "",
+                password: "PRjgg3DxzS3yyPg",
                 database: "webapp"
             }
             try {

@@ -6,6 +6,8 @@ module.exports = {
       id, nome, sobrenome, dataNasc, cpf, rg,
       facebook, instagram, linkedin, twitter
     } = req.body;
+    console.log(id, nome, sobrenome, dataNasc, cpf, rg,
+      facebook, instagram, linkedin, twitter);
     const sql = "INSERT INTO Cliente (cli_id,cli_nome,cli_sobrenome,cli_dataNasc," +
       "cli_cpf,cli_rg,cli_facebook,cli_instagram,cli_linkedin,cli_twitter) " +
       " VALUES(?,?,?,?,?,?,?,?,?,?)";

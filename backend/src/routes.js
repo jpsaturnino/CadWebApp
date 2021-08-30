@@ -9,9 +9,11 @@ routes.get('/clients/:nome', client.search);
 
 const phone = require('./controller/Phone');
 routes.post('/phone', phone.add);
-routes.get('/phone', phone.listByClient);
+routes.get('/phone/:id', phone.listByClient);
 
 const address = require('./controller/Address');
-routes.post('/endereco', address.add);
+routes.post('/address', address.add);
+routes.get('/address/:id', address.listByClient);
+
 
 module.exports = routes;

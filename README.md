@@ -2,14 +2,17 @@
 
 ## Sobre
 
-Sistema para cadastro de clientes e listagem. Foi desenvolvido como teste para um processo seletivo e seguido os requisitos necessários.
+Sistema para cadastro, listagem e manipulação dos dados de clientes cadastrados no sistema. Foi desenvolvido como teste para um processo seletivo e seguido os requisitos necessários.
 
 ### Features
 
-- Possibilidade de adicionar múltiplos endereços no cadastro de um cliente.
-- Possibilidade de adicionar múltiplos telefones no cadastro de um cliente.
-- Listagem de todos os usuários com paginação.
-- Pesquisa de usuários a partir de um nome.
+- Adicionar múltiplos endereços no cadastro de um cliente.
+- Adicionar múltiplos telefones no cadastro de um cliente.
+- Listagem de todos os clientes cadastrados no banco de dados.
+- Pesquisa de clientes cadastrados no banco de dados a partir do nome.
+- Edição dos dados de um cliente.
+- Remoção de determinado cliente.
+- Vizualização dos dados de determinado cliente.
 
 ## Desenvolvido com
 
@@ -58,7 +61,7 @@ npm nodemon ./src/index.js || yarn nodemon ./src/index.js
 
 Ao executar o passo 1. dessa etapa, uma aba deve abrir no navegador executando o projeto, caso não ocorra acesse com:
 
-https://localhost:3000
+http://localhost:3000
 
 _As portas da aplicação estão separadas em:_
 

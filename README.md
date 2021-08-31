@@ -2,7 +2,7 @@
 
 ## Sobre
 
-Sistema para cadastro de clientes e listagem. Foi desenvolvido como teste para um processo seletivo e seguido os requisitos necessários.
+Sistema para cadastro, listagem e manipulação dos dados de clientes cadastrados no sistema. Foi desenvolvido como teste para um processo seletivo e seguido os requisitos necessários.
 
 ### Features
 

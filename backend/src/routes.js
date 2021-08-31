@@ -5,7 +5,9 @@ const routes = Router();
 const client = require('./controller/Clients');
 routes.post('/clients', client.add);
 routes.get('/clients/list', client.list);
-routes.get('/clients/:nome', client.search);
+routes.get('/clients/byname/:nome/:sobrenome', client.search);
+routes.get('/clients/byid/:id', client.searchId);
+routes.get('/clients/bycpf/:cpf', client.searchCPF);
 
 const phone = require('./controller/Phone');
 routes.post('/phone', phone.add);

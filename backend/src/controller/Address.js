@@ -17,7 +17,7 @@ module.exports = {
   },
 
   async listByClient(req, res) {
-    const id = req.query;
+    const { id } = req.params;
     const sql = 'SELECT * FROM Endereco WHERE cli_id=?';
     const values = [id];
     await db.conect();

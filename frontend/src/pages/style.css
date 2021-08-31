@@ -77,3 +77,9 @@ label {
 	margin: 0;
 	padding: 0;
 }
+
+.error {
+	font-size: 12px;
+	font-weight: 600;
+	color: rgb(255, 43, 43);
+}

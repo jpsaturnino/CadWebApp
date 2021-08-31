@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 //import { useHistory } from "react-router-dom";
 import api from '../services/api';
-import { Eye, Edit, Trash, Search, ArrowLeft } from 'react-feather';
+import { Eye, Edit, Trash, Search } from 'react-feather';
 
 export default function Home() {
   //const history = useHistory();

@@ -61,7 +61,7 @@ npm nodemon ./src/index.js || yarn nodemon ./src/index.js
 
 Ao executar o passo 1. dessa etapa, uma aba deve abrir no navegador executando o projeto, caso não ocorra acesse com:
 
-https://localhost:3000
+http://localhost:3000
 
 _As portas da aplicação estão separadas em:_
 

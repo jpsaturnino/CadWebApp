@@ -6,10 +6,13 @@ Sistema para cadastro de clientes e listagem. Foi desenvolvido como teste para u
 
 ### Features
 
-- Possibilidade de adicionar múltiplos endereços no cadastro de um cliente.
-- Possibilidade de adicionar múltiplos telefones no cadastro de um cliente.
-- Listagem de todos os usuários com paginação.
-- Pesquisa de usuários a partir de um nome.
+- Adicionar múltiplos endereços no cadastro de um cliente.
+- Adicionar múltiplos telefones no cadastro de um cliente.
+- Listagem de todos os clientes cadastrados no banco de dados.
+- Pesquisa de clientes cadastrados no banco de dados a partir do nome.
+- Edição dos dados de um cliente.
+- Remoção de determinado cliente.
+- Vizualização dos dados de determinado cliente.
 
 ## Desenvolvido com
 

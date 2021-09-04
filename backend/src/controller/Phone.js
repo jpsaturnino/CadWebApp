@@ -7,10 +7,25 @@ module.exports = {
     for (let i in phone) {
       const sql = "INSERT INTO Telefone (cli_id, tel_tipo, tel_numero) VALUES(?,?,?)";
       const values = [
-        id, phone[i].tipo, phone[i].numero
+        id, phone[i].tel_tipo, phone[i].tel_numero
       ]
       await db.conect();
-      await db.handle(sql, values);
+      const result = await db.handle(sql, values);
+      console.log(result);
+    }
+  },
+
+  async edit(req, res) {
+    const phone = req.body;
+    const id = phone[0].cli_id;
+    for (let i in phone) {
+      const sql = "UPDATE Telefone SET cli_id=?, tel_tipo=?, tel_numero=? WHERE tel_id = ?";
+      const values = [
+        id, phone[i].tel_tipo, phone[i].tel_numero, phone[i].tel_id
+      ]
+      await db.conect();
+      const result = await db.handle(sql, values);
+      console.log(result);
     }
   },
 

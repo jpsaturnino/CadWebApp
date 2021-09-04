@@ -6,8 +6,6 @@ module.exports = {
       id, nome, sobrenome, dataNasc, cpf, rg,
       facebook, instagram, linkedin, twitter
     } = req.body;
-    console.log(id, nome, sobrenome, dataNasc, cpf, rg,
-      facebook, instagram, linkedin, twitter);
     const sql = "INSERT INTO Cliente (cli_id,cli_nome,cli_sobrenome,cli_dataNasc," +
       "cli_cpf,cli_rg,cli_facebook,cli_instagram,cli_linkedin,cli_twitter) " +
       " VALUES(?,?,?,?,?,?,?,?,?,?)";
@@ -16,7 +14,23 @@ module.exports = {
       facebook, instagram, linkedin, twitter
     ];
     await db.conect();
-    await db.handle(sql, values);
+    const result = await db.handle(sql, values);
+    console.log(result);
+  },
+
+  async edit(req, res) {
+    const {
+      id, nome, sobrenome, dataNasc, cpf, rg,
+      facebook, instagram, linkedin, twitter
+    } = req.body;
+    const sql = "UPDATE Cliente SET cli_nome=?, cli_sobrenome=?, cli_dataNasc=?, cli_cpf=?, cli_rg=?," +
+      "cli_facebook=?, cli_instagram=?, cli_linkedin=?, cli_twitter=? WHERE cli_id =  ?";
+    const values = [
+      nome, sobrenome, dataNasc, cpf, rg,
+      facebook, instagram, linkedin, twitter, id
+    ];
+    await db.conect();
+    const result = await db.handle(sql, values);
   },
 
   async list(req, res) {
@@ -28,10 +42,10 @@ module.exports = {
 
   async search(req, res) {
     const { nome, sobrenome } = req.params;
-    const sql = "SELECT cli_nome, cli_sobrenome from Cliente WHERE cli_nome LIKE ? OR cli_sobrenome LIKE ?";
-    const values = [nome, sobrenome];
+    const sql = "SELECT * from Cliente WHERE cli_nome LIKE" +
+      " '%" + nome + "%' OR cli_sobrenome LIKE '%" + sobrenome + "%'";
     await db.conect();
-    const result = await db.query(sql, values);
+    const result = await db.query(sql);
     return res.json(result.data);
   },
 
@@ -51,5 +65,5 @@ module.exports = {
     await db.conect();
     const result = await db.query(sql, values);
     return res.json(result.data);
-  }
+  },
 }

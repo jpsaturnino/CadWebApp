@@ -1,7 +1,8 @@
 import React, { createContext, useState } from 'react'
 import api from '../services/api';
 
-const defaultInfo = {
+const defaultInfo =
+{
   id: 0,
   nome: '',
   sobrenome: '',
@@ -21,7 +22,6 @@ export default function DataProvider({ children }) {
   const [address, setAddress] = useState([]);
   const [phone, setPhone] = useState([]);
   const [allDone, setAllDone] = useState(false);
-  const [action, setAction] = useState('');
 
   async function sClient() {
     const {
@@ -29,38 +29,27 @@ export default function DataProvider({ children }) {
       facebook, instagram, linkedin, twitter
     } = info;
 
-    if (action === 'new')
-      await api.post('/clients/', {
-        id, nome, sobrenome, dataNasc, cpf, rg,
-        facebook, instagram, linkedin, twitter
-      });
-    else
-      await api.put('/clients/', {
-        id, nome, sobrenome, dataNasc, cpf, rg,
-        facebook, instagram, linkedin, twitter
-      });
+    const result = await api.post('/clients/', {
+      id, nome, sobrenome, dataNasc, cpf, rg,
+      facebook, instagram, linkedin, twitter
+    });
+    console.log("CLIENTE:" + result);
   }
 
   async function sPhone() {
-    if (action === 'new')
-      await api.post('/phone/', phone);
-    else
-      await api.put('/phone/', phone);
+    const result = await api.post('/phone/', phone);
+    console.log("TELEFONE:" + result);
   }
 
   async function sAdress() {
-    if (action === 'new')
-      await api.post('/address/', address);
-    else
-      await api.put('/address/', address);
+    const result = await api.post('/address/', address);
+    console.log("ENDERECO:" + result);
   }
 
   function clearAllFields() {
     setInfo(defaultInfo);
     setAddress([]);
     setPhone([]);
-    setAction('');
-    setStep(0);
   }
 
   /* function saveData() {
@@ -86,8 +75,8 @@ export default function DataProvider({ children }) {
   return (
     <DataContext.Provider
       value={{
-        step, setStep, info, setInfo, address, setAddress, defaultInfo,
-        phone, setPhone, allDone, setAllDone, saveData, action, setAction
+        step, setStep, info, setInfo, address, setAddress,
+        phone, setPhone, allDone, setAllDone, saveData
       }}>
       {children}
     </DataContext.Provider>

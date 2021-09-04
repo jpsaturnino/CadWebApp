@@ -1,85 +1,57 @@
 import React, { useContext } from 'react';
 import { DataContext } from '../../context/DataContext';
 
+import Button from '../form/Button';
+import TextField from '../form/TextField';
+
 export const Social = () => {
-  const { info, setInfo } = useContext(DataContext);
+  const { info, setInfo, step, setStep } = useContext(DataContext);
 
   return (
     <>
       <h3 className='text-semibold mb-5'>Redes Sociais</h3>
       <div className='row m-0 align-items-center justify-content-between'>
         <div className='col-md-5 p-0'>
-          <div>
-            <label htmlFor='facebook'>
-              Facebook
-            </label>
-          </div>
-          <input
-            onChange={e => {
-              const newFb = e.target.value;
-              setInfo(prev => {
-                return { ...prev, facebook: newFb }
-              })
+          <TextField
+            label='Facebook'
+            onChange={(facebook) => {
+              setInfo({ ...info, facebook })
             }}
             value={info.facebook}
-            className='w-100 bg-transparent input-style rounded p-2'
-            type='text' id='facebook' placeholder=''
           />
         </div>
         <div className='col-md-5 p-0'>
-          <div>
-            <label htmlFor='instagram'>
-              Instagram
-            </label>
-          </div>
-          <input
-            onChange={e => {
-              const newInsta = e.target.value;
-              setInfo(prev => {
-                return { ...prev, instagram: newInsta }
-              })
+          <TextField
+            label='Instagram'
+            onChange={(instagram) => {
+              setInfo({ ...info, instagram })
             }}
             value={info.instagram}
-            className='w-100 bg-transparent input-style rounded p-2'
-            type='text' id='instagram' placeholder=''
           />
         </div>
         <div className='col-md-5 p-0'>
-          <div>
-            <label htmlFor='linkedin'>
-              LinkedIn
-            </label>
-          </div>
-          <input
-            onChange={e => {
-              const newLi = e.target.value;
-              setInfo(prev => {
-                return { ...prev, linkedin: newLi }
-              })
+          <TextField
+            label='LinkedIn'
+            onChange={(linkedin) => {
+              setInfo({ ...info, linkedin })
             }}
             value={info.linkedin}
-            className='w-100 bg-transparent input-style rounded p-2'
-            type='text' id='linkedin' placeholder=''
           />
         </div>
         <div className='col-md-5 p-0'>
-          <div>
-            <label htmlFor='twitter'>
-              Twitter
-            </label>
-          </div>
-          <input
-            onChange={e => {
-              const newTt = e.target.value;
-              setInfo(prev => {
-                return { ...prev, twitter: newTt }
-              })
+          <TextField
+            label='Twitter'
+            onChange={(twitter) => {
+              setInfo({ ...info, twitter })
             }}
             value={info.twitter}
-            className='w-100 bg-transparent input-style rounded p-2'
-            type='text' id='twitter' placeholder=''
           />
         </div>
+      </div>
+
+      <div className='row align-items-center justify-content-between mt-5'>
+        <Button divClass='col text-start' onClick={() => setStep(step - 1)}>Voltar</Button>
+        <Button divClass='col text-end' onClick={() => setStep(step + 1)}>Próximo</Button>
       </div>
     </>
   );

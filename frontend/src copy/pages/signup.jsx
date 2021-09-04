@@ -9,23 +9,16 @@ import { DataContext } from '../context/DataContext';
 
 export default function SignUp() {
   const history = useHistory();
-  const { step, allDone, setAllDone, action, setAction } = useContext(DataContext);
+  const { step, setStep, allDone, setAllDone } = useContext(DataContext);
 
   function reset(flag) {
     setAllDone(false);
+    setStep(0);
+
     if (flag === 'home')
       return history.push('./');
 
-    setAction('new')
     return history.push('./cadastro');
-  }
-
-  function showFinalMessage() {
-    return (
-      action === 'new'
-        ? <h1 className='text-center text-semibold'>Cadastrado com sucesso!</h1>
-        : <h1 className='text-center text-semibold'>Editado com sucesso!</h1>
-    );
   }
 
   return (
@@ -49,7 +42,7 @@ export default function SignUp() {
           :
           <>
             <div className='mx-auto shadow p-4 container'>
-              {showFinalMessage()}
+              <h1 className='text-center text-semibold'>Cadastrado com sucesso!</h1>
               <div className='row align-items-center justify-content-center mt-1'>
                 <div className='col-auto m-1'>
                   <button onClick={() => reset('home')} className='p-1 btn btn-success px-2 border-0'>

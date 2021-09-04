@@ -1,11 +1,9 @@
 import React, { useContext } from 'react'
 import { DataContext } from '../../context/DataContext';
-import Button from '../form/Button';
 
 export const Submit = () => {
   const { info, address, phone, setStep, step, saveData } = useContext(DataContext);
 
-  /* Carrega e renderiza todos os enderecos adicionados na sessao */
   function loadAdresses() {
     return (
       address.length !== 0
@@ -13,7 +11,7 @@ export const Submit = () => {
           <div className='row justify-content-between p-2 
             align-items-center m-0 mb-2 container-data' key={i}>
             <div className='col-md-auto'>
-              <p className='m-0 p-0 text-black'>{adr.end_rua}, Nº {adr.end_numero}</p>
+              <p className='m-0 p-0 text-black'>{adr.rua}, Nº {adr.numero}</p>
             </div>
           </div>
         ))
@@ -21,14 +19,13 @@ export const Submit = () => {
     );
   }
 
-  /* Carrega e renderiza todos os telefones adicionados na sessao */
   function loadPhones() {
     return (
       phone.length !== 0
         ? phone.map((ph, i) => (
           <div className='row justify-content-between p-2 align-items-center m-0 mb-2 container-data' key={i}>
             <div className='col-md-auto'>
-              <p className='m-0 p-0 text-black'>{ph.tel_tipo}: {ph.tel_numero}</p>
+              <p className='m-0 p-0 text-black'>{ph.tipo}: {ph.numero}</p>
             </div>
           </div>
         ))
@@ -58,10 +55,17 @@ export const Submit = () => {
         <h4 className='mt-4'>Telefones Adicionados</h4>
         {loadPhones()}
       </div>
-
       <div className='row align-items-center justify-content-between mt-5'>
-        <Button divClass='col text-start' onClick={() => setStep(step - 1)}>Voltar</Button>
-        <Button divClass='col text-end' onClick={() => saveData()}>Concluir</Button>
+        <div className='col-md-auto'>
+          <button type="button" onClick={() => setStep(step - 1)} className='p-1 bg-transparent border-0'>
+            Voltar
+          </button>
+        </div>
+        <div className='col-md-auto'>
+          <button type="button" onClick={() => saveData()} className='p-1 bg-transparent border-0'>
+            Concluir
+          </button>
+        </div>
       </div>
     </>
   );

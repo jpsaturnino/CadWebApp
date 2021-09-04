@@ -43,6 +43,7 @@ _É nescessário ter o MySql server instalado e executando_
 
 1. Vá em `./backend/src/model/Database.js`
 2. Nas linhas `13-18` verifique e coloque as informções que condizem com seu MySql
+3. Utilize o arquivo ```dbCadWebApp.sql``` para restaurar a base de dados
 
 ## Executando
 

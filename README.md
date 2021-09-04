@@ -11,7 +11,6 @@ Sistema para cadastro, listagem e manipulação dos dados de clientes cadastrado
 - Listagem de todos os clientes cadastrados no banco de dados.
 - Pesquisa de clientes cadastrados no banco de dados a partir do nome.
 - Edição dos dados de um cliente.
-- Remoção de determinado cliente.
 - Vizualização dos dados de determinado cliente.
 
 ## Desenvolvido com

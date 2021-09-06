@@ -12,6 +12,7 @@ export default function Home() {
   const [pages, setPage] = useState([1]);
   const [curPage, setCurPage] = useState(1);
   const [show, setShow] = useState(false);
+  const [qtyClients, setQty] = useState(6);
 
   /* Controla a Modal */
   const handleClose = () => { setShow(false); setInfo(defaultInfo) };
@@ -51,7 +52,7 @@ export default function Home() {
     setPageQuantity();
 
     return (
-      clients.slice((curPage - 1) * 6, curPage * 6).map((client, i) => {
+      clients.slice((curPage - 1) * qtyClients, curPage * qtyClients).map((client, i) => {
         return (
           <div className='col-sm-4 m-0 mb-3' key={i}>
             <li className="col-sm-12 container rounded p-2 list">
@@ -82,7 +83,7 @@ export default function Home() {
   function setPageQuantity() {
     for (let i in clients) {
       let lastPage = pages[pages.length - 1]
-      if (i == lastPage * 6) { /* eslint eqeqeq: 0 */
+      if (i == lastPage * qtyClients) { /* eslint eqeqeq: 0 */
         setPage(oldPages => [...oldPages, lastPage + 1]);
       }
     }
@@ -154,6 +155,30 @@ export default function Home() {
               ? <span className='text-center text-semibold p-2'>Pagina: {curPage}</span>
               : null
           }
+        </div>
+        <div className='row align-items-center justify-content-end'>
+          <div className='col-auto p-0'>
+            <p className='m-0'>Vizualizar:</p>
+          </div>
+          <div className='col-3 text-center'>
+            <select
+              className='w-100 p-0 bg-transparent input-style rounded'
+              value={qtyClients}
+              onChange={e => {
+                setQty(e.target.value);
+                setCurPage(1);
+                setPage([1]);
+                setPageQuantity();
+              }}>
+              <option value='' disabled>
+                Vizualizando {qtyClients} clientes por pagina...
+              </option>
+              <option value="6">6 clientes</option>
+              <option value="12">12 clientes</option>
+              <option value="18">18 clientes</option>
+              <option value="24">24 clientes</option>
+            </select>
+          </div>
         </div>
       </div>
 

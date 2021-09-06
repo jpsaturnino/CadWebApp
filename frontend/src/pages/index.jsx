@@ -6,12 +6,15 @@ import { DataContext } from '../context/DataContext';
 
 export default function Home() {
   const history = useHistory();
-  const { setAction } = useContext(DataContext);
+  const { clearAllFields } = useContext(DataContext);
 
   return (
     <div className='main'>
       <div className='d-flex text-center flex-column p-5 container'>
-        <Button className='m-2' onClick={() => { history.push('/cadastro'); setAction('new') }}>
+        <Button className='m-2' onClick={() => {
+          history.push('/cadastro');
+          clearAllFields()
+        }}>
           CADASTRAR CLIENTE
         </Button>
         <Button className='m-2 bg-dark btn-dark' onClick={() => history.push('/clientes')}>

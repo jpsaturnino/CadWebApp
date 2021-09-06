@@ -59,21 +59,10 @@ export default function DataProvider({ children }) {
     setInfo(defaultInfo);
     setAddress([]);
     setPhone([]);
-    setAction('');
+    setAction('new');
     setStep(0);
   }
 
-  /* function saveData() {
-    return new Promise((resolve, reject) => {
-      sClient();
-      sAdress();
-      sPhone();
-      setAllDone(true);
-      clearAllFields();
-      resolve();
-    });
-  }
- */
   function saveData() {
     sClient();
     sAdress();
@@ -87,7 +76,7 @@ export default function DataProvider({ children }) {
     <DataContext.Provider
       value={{
         step, setStep, info, setInfo, address, setAddress, defaultInfo,
-        phone, setPhone, allDone, setAllDone, saveData, action, setAction
+        phone, setPhone, allDone, setAllDone, saveData, action, setAction, clearAllFields
       }}>
       {children}
     </DataContext.Provider>

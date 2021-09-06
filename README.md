@@ -4,6 +4,8 @@
 
 Sistema para cadastro, listagem e manipulação dos dados de clientes cadastrados no sistema. Foi desenvolvido como teste para um processo seletivo e seguido os requisitos necessários.
 
+Acesse em: https://cadwebapp.netlify.app
+
 ### Features
 
 - Adicionar múltiplos endereços no cadastro de um cliente.

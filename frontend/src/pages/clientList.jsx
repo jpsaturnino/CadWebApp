@@ -132,7 +132,7 @@ export default function Home() {
           {
             clients.length !== 0
               ? renderClients()
-              : <p>NÃO FOI ENCONTRADO CLIENTES!</p>
+              : <p>CARREGANDO...</p>
           }
         </ul>
 
